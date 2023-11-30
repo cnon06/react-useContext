@@ -20,7 +20,7 @@ function BookShow({ book, onDelete, onEnableCreate, onEdit }) {
         />
       </h3>
       {showEdit ? (
-        <BookEdit book={book} onEdit={handleEdit} onEdit2={onEdit} />
+        <BookEdit book={book} handleEdit={handleEdit} onEdit={onEdit} />
       ) : (
         ""
       )}
