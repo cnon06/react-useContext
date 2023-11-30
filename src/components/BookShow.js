@@ -13,6 +13,11 @@ function BookShow({ book, onDelete, onEnableCreate, onEdit }) {
     <div className="book-show">
       <h3>
         {book.title}-{book.id}
+        <img
+          className="books"
+          src={`https://picsum.photos/seed/${book.id}/300/200`}
+          alt=""
+        />
       </h3>
       {showEdit ? (
         <BookEdit book={book} onEdit={handleEdit} onEdit2={onEdit} />
