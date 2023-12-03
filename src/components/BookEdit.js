@@ -10,6 +10,7 @@ function BookEdit({ book, handleEdit, onEdit }) {
     event.preventDefault();
 
     onEdit(book.id, title);
+    handleEdit();
   };
 
   return (
@@ -22,9 +23,7 @@ function BookEdit({ book, handleEdit, onEdit }) {
           onChange={handleChange}
           className="input"
         />
-        <button className="button is-primary" onClick={handleEdit}>
-          Save
-        </button>
+        <button className="button is-primary">Save</button>
       </form>
     </div>
   );
