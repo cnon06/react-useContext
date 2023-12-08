@@ -1,13 +1,8 @@
-import React, { useState } from "react";
 import BookEdit from "./BookEdit";
+import useBooksContext from "../hooks/use-books-context";
 
-function BookShow({ book, onDelete, onEnableCreate, onEdit }) {
-  const [showEdit, setShowEdit] = useState(false);
-
-  const handleEdit = () => {
-    setShowEdit(!showEdit);
-    onEnableCreate(showEdit);
-  };
+function BookShow({ book }) {
+  const { showEdit, handleEditCreate, deleteBookById, ID } = useBooksContext();
 
   return (
     <div className="book-show">
@@ -19,16 +14,13 @@ function BookShow({ book, onDelete, onEnableCreate, onEdit }) {
           alt=""
         />
       </h3>
-      {showEdit ? (
-        <BookEdit book={book} handleEdit={handleEdit} onEdit={onEdit} />
-      ) : (
-        ""
-      )}
+
+      {showEdit ? ID === book.id ? <BookEdit book={book} /> : "" : ""}
       <div className="actions">
-        <button className="delete" onClick={() => onDelete(book.id)}>
+        <button className="delete" onClick={() => deleteBookById(book.id)}>
           Delete
         </button>
-        <button className="edit" onClick={handleEdit}>
+        <button className="edit" onClick={() => handleEditCreate(book.id)}>
           Delete
         </button>
       </div>
