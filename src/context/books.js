@@ -11,9 +11,6 @@ function Provider({ children }) {
 
   const [ID, setID] = useState();
   const [title, setTitle] = useState("");
-  // const handleEnableCreate = (isEnable) => {
-  //   setEnableCreate(isEnable);
-  // };
 
   const fetchBooks = async () => {
     const response = await axios.get("http://localhost:3001/books");
